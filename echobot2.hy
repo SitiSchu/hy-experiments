@@ -16,7 +16,9 @@
 
 (defn help [bot update]
     "Send a message when the command /help is issued."
-    (update.message.reply_text "Help!"))
+    (update.message.reply_text "/start - Start the bot
+/help - Show the help
+/source - Link to the Source Code"))
 
 (defn echo [bot update]
     "Echo the user message."

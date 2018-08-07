@@ -1,5 +1,6 @@
 (import [telegram.ext [Updater CommandHandler MessageHandler Filters]])
 (import logging)
+(import config)
 
 ; Enable logging
 (logging.basicConfig :format "%(asctime)s - %(name)s - %(levelname)s - %(message)s" :level logging.INFO)
@@ -26,7 +27,7 @@
 
 (defn source [bot update]
     "Send link to he bots source Code"
-    (update.message.reply_text "You can find my Source code here: https://github.com/SitiSchu/hy-experiments/echobot2.hy"))
+    (update.message.reply_text "My Source Code is on [GitHub](https://github.com/SitiSchu/hy-experiments/blob/master/echobot2.hy)." :parse_mode "Markdown"))
 
 (defn error [bot update]
     "Log Errors caused by Updates."
@@ -35,7 +36,7 @@
 (defn main []
     "Start the bot."
     ; Create the EventHandler and pass it your bot's token.
-    (setv updater (Updater "677300597:AAEpJaYiaoaFx_6IeAr-8CmOALFI3EMY3BQ"))
+    (setv updater (Updater config.token))
 
     ; Get the dispatcher to register handlers
     (setv dp updater.dispatcher)
